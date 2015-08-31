@@ -1,0 +1,41 @@
+<%= form_for(@deposit) do |f| %>
+  <% if @deposit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deposit.errors.count, "error") %> prohibited this deposit from being saved:</h2>
+
+      <ul>
+      <% @deposit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :account_id %><br>
+    <%= f.number_field :account_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tenure_in_years %><br>
+    <%= f.number_field :tenure_in_years %>
+  </div>
+  <div class="field">
+    <%= f.label :tenure_in_months %><br>
+    <%= f.number_field :tenure_in_months %>
+  </div>
+  <div class="field">
+    <%= f.label :tenure_in_days %><br>
+    <%= f.number_field :tenure_in_days %>
+  </div>
+  <div class="field">
+    <%= f.label :maturity_proceeds %><br>
+    <%= f.check_box :maturity_proceeds %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

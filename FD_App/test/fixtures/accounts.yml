@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_number: 1
+  user_id: 1
+  type_account: MyString
+  tenure_in_years: 1
+  tenure_in_months: 1
+  tenure_in_days: 1
+  maturity_proceeds: false
+
+two:
+  account_number: 1
+  user_id: 1
+  type_account: MyString
+  tenure_in_years: 1
+  tenure_in_months: 1
+  tenure_in_days: 1
+  maturity_proceeds: false

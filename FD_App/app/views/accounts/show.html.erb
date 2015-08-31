@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @account.account_number %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @account.user_id %>
+</p>
+
+<p>
+  <strong>Type account:</strong>
+  <%= @account.type_account %>
+</p>
+
+<p>
+  <strong>Tenure in years:</strong>
+  <%= @account.tenure_in_years %>
+</p>
+
+<p>
+  <strong>Tenure in months:</strong>
+  <%= @account.tenure_in_months %>
+</p>
+
+<p>
+  <strong>Tenure in days:</strong>
+  <%= @account.tenure_in_days %>
+</p>
+
+<p>
+  <strong>Maturity proceeds:</strong>
+  <%= @account.maturity_proceeds %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

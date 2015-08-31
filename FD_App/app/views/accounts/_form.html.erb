@@ -1,0 +1,33 @@
+<%= form_tag(accounts_path) do |f| %>
+  <div class="field">
+    <%= label_tag :account_number %><br>
+    <%= number_field_tag :account_number %>
+  </div>  
+  <div class="field">
+    <%= label_tag :deposit_amount %><br>
+    <%= number_field_tag :deposit_amount %>
+  </div>  
+  <div class="field">
+    <%= label_tag :type_account %><br>
+    <%= text_field_tag :type_account %>
+  </div>
+  <div class="field">
+    <%= label_tag :tenure_in_years %><br>
+    <%= number_field_tag :tenure_in_years %>
+  </div>
+  <div class="field">
+    <%= label_tag :tenure_in_months %><br>    
+    <%= select(:tenure_in_months, "", (1..12)) %>
+  </div>
+  <div class="field">
+    <%= label_tag :tenure_in_days %><br>
+    <%= select(:tenure_in_days, "", (1..31)) %>
+  </div>
+  <div class="field">
+    <%= label_tag :maturity_proceeds %><br>
+    <%= check_box_tag :maturity_proceeds %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Deposit" %>
+  </div>
+<% end %>

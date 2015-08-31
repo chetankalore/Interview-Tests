@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @deposit.account_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @deposit.user_id %>
+</p>
+
+<p>
+  <strong>Tenure in years:</strong>
+  <%= @deposit.tenure_in_years %>
+</p>
+
+<p>
+  <strong>Tenure in months:</strong>
+  <%= @deposit.tenure_in_months %>
+</p>
+
+<p>
+  <strong>Tenure in days:</strong>
+  <%= @deposit.tenure_in_days %>
+</p>
+
+<p>
+  <strong>Maturity proceeds:</strong>
+  <%= @deposit.maturity_proceeds %>
+</p>
+
+<%= link_to 'Edit', edit_deposit_path(@deposit) %> |
+<%= link_to 'Back', deposits_path %>

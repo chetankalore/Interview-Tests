@@ -1,6 +1,6 @@
 <%= form_tag(accounts_path) do |f| %>
   <div class="field">
-    <%= label_tag :account_number %><br>
+    <%= label_tag :debit_account_number %><br>
     <%= number_field_tag :account_number %>
   </div>  
   <div class="field">
@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= label_tag :tenure_in_months %><br>    
-    <%= select(:tenure_in_months, "", (1..12)) %>
+    <%= select(:tenure_in_months, "", (0..12)) %>
   </div>
   <div class="field">
     <%= label_tag :tenure_in_days %><br>
-    <%= select(:tenure_in_days, "", (1..31)) %>
+    <%= select(:tenure_in_days, "", (0..31)) %>
   </div>
   <div class="field">
     <%= label_tag :maturity_proceeds %><br>

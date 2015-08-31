@@ -24,19 +24,39 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    
-      
-    @account = Account.new(account_params)
+    account = Account.where("account_number = ?", params[:account_number]).first    
+    deposit_amount = params[:deposit_amount].to_f    
 
-    respond_to do |format|
-      if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
-      else
-        format.html { render :new }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+    if (account && account.balance >= deposit_amount)
+      deposit = Deposit.new
+      deposit.account_id = account.id
+      deposit.user_id = account.user_id
+
+      tenure_in_years = params[:tenure_in_years].first
+      tenure_in_months = params[:tenure_in_months].first
+      tenure_in_days = params[:tenure_in_days].first
+
+      deposit.tenure_in_years = tenure_in_years
+      deposit.tenure_in_months = tenure_in_months
+      deposit.tenure_in_days = tenure_in_days
+      deposit.maturity_proceeds = params[:maturity_proceeds].present? ? params[:maturity_proceeds] : 0
+
+      deposit.save
+
+      user_age = account.user.age rescue 0
+
+      # This is to calculate the rate of interest.
+      #interest = deposit.calculate_interest(tenure_in_years, tenure_in_months, tenure_in_days, user_age)
+      #deposit.update(:interest => interest)
+
+      balance = (account.balance - deposit_amount)
+      account.update(:balance => balance)
+    else
+      flash[:error] = "Account doesn't exsits / balance is less. Please try again."
+      redirect_to new_account_path
     end
+    flash[:message]= "Amount is deposited successfully."
+    redirect_to new_account_path
   end
 
   # PATCH/PUT /accounts/1

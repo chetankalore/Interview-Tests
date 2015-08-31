@@ -1,2 +1,9 @@
 <h1>Deposit Form</h1>
+<% if flash.present? %>
+  <ul>  
+  <% flash.each do |key, message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
 <%= render 'form' %>
